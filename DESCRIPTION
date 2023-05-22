@@ -1,4 +1,4 @@
-Package: giallozafferanorecipes
+Package: giallozafferano_recipes
 Type: Package
 Title: Scrape recipes from GialloZafferano Italian website
 Version: 0.1.0
@@ -7,6 +7,8 @@ Maintainer: The package maintainer <giovannicutri02@gmail.com>
 Description: A handy tool to find recipes on GialloZafferano.
     You can filter by difficulty, cooking time, ingredients and other fields.
     The result is a dataframe containing all of the recipes which you can use to set up a personal cooking plan.
+URL: https://github.com/giovanni-cutri/giallozafferano-recipes
+BugReports: https://github.com/giovanni-cutri/giallozafferano-recipes/issues
 License: MIT License
 Encoding: UTF-8
 LazyData: true
