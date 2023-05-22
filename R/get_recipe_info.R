@@ -9,6 +9,7 @@ get_recipe_info <- function(url) {
       title <- recipe_page %>%
         html_elements(css = "meta[property='og:title']") %>%
         html_attr("content")
+      print(paste("Parsing '", title, "'...", sep = ""))
     },
     error = function(e){
       title <<- NA
@@ -114,8 +115,8 @@ get_recipe_info <- function(url) {
     }
   )
 
-  info <- c(url, title, category, rating, calories_per_serving,
-            difficulty, preparation_time, cooking_time, price)
+  info <- list(c(url, title, category, rating, calories_per_serving, difficulty,
+            preparation_time, cooking_time, price))
 
   return(info)
 }

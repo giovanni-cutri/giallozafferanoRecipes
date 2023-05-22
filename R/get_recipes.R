@@ -5,6 +5,8 @@ source("get_recipe_info.R")
 get_recipes <- function(difficulty = "", cooking_time = "", diet = "",
                         ingredient = "", cooking_method = ""){
   
+  print("Generating query...")
+  
   url <- "https://www.giallozafferano.it/ricette-cat/?search_query="
   
   if (difficulty == "facile"){
@@ -66,9 +68,21 @@ get_recipes <- function(difficulty = "", cooking_time = "", diet = "",
   search_url <- url
   links <- get_recipes_links(search_url)
   
+  recipes <- list()
+  
   for(link in links){
     recipe <- get_recipe_info(link)
-    print(recipe)
+    recipes <- append(recipes, recipe)
   }
   
+  print("Creating dataframe...")
+  
+  df.recipes <- do.call(rbind.data.frame, recipes)
+  colnames(df.recipes) <- c("url", "title", "category", "rating",
+                            "calories_per_serving", "difficulty",
+                            "preparation_time", "cooking_time", "price")
+  
+  print("Done.")
+  
+  return(df.recipes)
 }

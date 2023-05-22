@@ -2,6 +2,8 @@ library(rvest)
 
 get_recipes_links <- function(url) {
 
+  print("Getting recipes links...")
+
   recipes_links <- c()
 
   while(!identical(url, character(0))){
@@ -16,5 +18,6 @@ get_recipes_links <- function(url) {
     url <- next_page
   }
 
+  print(paste("Found", length(recipes_links), "recipes."))
   return(recipes_links)
 }
