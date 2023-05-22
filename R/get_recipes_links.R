@@ -8,6 +8,7 @@ get_recipes_links <- function(url) {
 
   count <- 1
 
+  # loop until the last page
   while(!identical(url, character(0))){
     recipes_page <- read_html(url)
     recipes <- recipes_page %>%
@@ -17,10 +18,12 @@ get_recipes_links <- function(url) {
     next_page <- recipes_page %>%
       html_elements(css = ".next") %>%
       html_attr("href")
+    # if it is the first iteration, get the total number of pages
     if (count == 1){
       total_pages <- recipes_page %>%
         html_element(css = ".total-pages") %>%
         html_text()
+      # if the total number of pages is not displayed, it can still be obtained
       if (is.na(total_pages)) {
         total_pages <- recipes_page %>%
           html_elements(css = ".gz-pages a") %>%

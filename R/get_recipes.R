@@ -29,6 +29,8 @@ get_recipes <- function(category = "", difficulty = "", cooking_time = "", diet 
 
   url <- "https://www.giallozafferano.it/ricette-cat/"
 
+  # parsing parameters
+
   if (category == "antipasti"){
     url <- update(url, "Antipasti/")
   }
