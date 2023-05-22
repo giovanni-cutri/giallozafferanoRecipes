@@ -1,3 +1,5 @@
+![Socialify](https://github.com/giovanni-cutri/giallozafferano-recipes/blob/master/images/socialify.png)
+
 # giallozafferano-recipes
 A handy tool to scrape recipes from the Italian website GialloZafferano, written in R.
 
