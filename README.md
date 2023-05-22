@@ -13,13 +13,13 @@ Install directly from GitHub.
 
 ```
 install.packages("devtools")
-devtools::install_github("giovanni-cutri/giallozafferano-recipes")
+devtools::install_github("giovanni-cutri/giallozafferanoRecipes")
 ````
 
 # Usage
 
 ````
-library(giallozafferrano-recipes)
+library(giallozafferanoRecipes)
 
 get_recipes(...)
 ````
@@ -40,4 +40,4 @@ special             A special category the recipe belongs to, selected by the we
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/giovanni-cutri/giallozafferano-recipes/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/giovanni-cutri/giallozafferanoRecipes/blob/master/LICENSE) file for details.
