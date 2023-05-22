@@ -6,6 +6,8 @@ get_recipes_links <- function(url) {
 
   recipes_links <- c()
 
+  count <- 1
+
   while(!identical(url, character(0))){
     recipes_page <- read_html(url)
     recipes <- recipes_page %>%
@@ -15,9 +17,23 @@ get_recipes_links <- function(url) {
     next_page <- recipes_page %>%
       html_elements(css = ".next") %>%
       html_attr("href")
+    if (count == 1){
+      total_pages <- recipes_page %>%
+        html_element(css = ".total-pages") %>%
+        html_text()
+      if (is.na(total_pages)) {
+        total_pages <- recipes_page %>%
+          html_elements(css = ".gz-pages a") %>%
+          length()
+      }
+
+    }
+    print(paste("Page", count, "of", total_pages, "..."))
     url <- next_page
+    count <- count + 1
   }
 
   print(paste("Found", length(recipes_links), "recipes."))
+
   return(recipes_links)
 }

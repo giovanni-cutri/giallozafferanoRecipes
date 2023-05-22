@@ -1,21 +1,24 @@
 library(rvest)
+library(stringr)
 
-get_recipe_info <- function(url) {
+get_recipe_info <- function(url, current, total) {
 
   recipe_page <- read_html(url)
 
+  title <- ""
   tryCatch(
     expr = {
       title <- recipe_page %>%
         html_elements(css = "meta[property='og:title']") %>%
         html_attr("content")
-      print(paste("Parsing '", title, "'...", sep = ""))
+      print(paste("Parsing '", title, "' (", current, "/", total, ")", "...", sep = ""))
     },
     error = function(e){
       title <<- NA
     }
   )
 
+  category <- ""
   tryCatch(
     expr = {
       category <- recipe_page %>%
@@ -27,6 +30,7 @@ get_recipe_info <- function(url) {
     }
   )
 
+  rating <- ""
   tryCatch(
     expr = {
       rating <- recipe_page %>%
@@ -38,6 +42,7 @@ get_recipe_info <- function(url) {
     }
   )
 
+  calories_per_serving <- ""
   tryCatch(
     expr = {
       calories_per_serving <- recipe_page %>%
@@ -49,6 +54,7 @@ get_recipe_info <- function(url) {
     }
   )
 
+  misc_data <- ""
   tryCatch(
     expr = {
       misc_data <- recipe_page %>%
@@ -59,6 +65,7 @@ get_recipe_info <- function(url) {
     }
   )
 
+  difficulty <- ""
   tryCatch(
     expr = {
       for (i in misc_data){
@@ -73,6 +80,7 @@ get_recipe_info <- function(url) {
     }
   )
 
+  preparation_time <- ""
   tryCatch(
     expr = {
       for (i in misc_data){
@@ -87,10 +95,11 @@ get_recipe_info <- function(url) {
     }
   )
 
+  cooking_time <- ""
   tryCatch(
     expr = {
       for (i in misc_data){
-        if (grepl("Cottura:", i, fixed = TRUE)){
+        if (grepl("Cottura", i, fixed = TRUE)){
           cooking_time <- i %>% str_split(": ") %>% .[[1]] %>% .[2]
           break
         }
@@ -101,6 +110,7 @@ get_recipe_info <- function(url) {
     }
   )
 
+  price <- ""
   tryCatch(
     expr = {
       for (i in misc_data){
