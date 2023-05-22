@@ -1,4 +1,4 @@
-Package: giallozafferano_recipes
+Package: giallozafferanoRecipes
 Type: Package
 Title: Scrape recipes from GialloZafferano Italian website
 Version: 0.1.0
