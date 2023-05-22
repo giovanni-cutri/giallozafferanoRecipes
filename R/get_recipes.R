@@ -1,10 +1,9 @@
-update <- function(url, option){
-  new_url <- paste(url, option)
-  return(new_url)
-}
+source("update_url.R")
+source("get_recipes_links.R")
+source("get_recipe_info.R")
 
-filter_recipes <- function(difficulty, cooking_time, diet, ingredient,
-                           cooking_method) {
+get_recipes <- function(difficulty = "", cooking_time = "", diet = "",
+                        ingredient = "", cooking_method = ""){
   
   url <- "https://www.giallozafferano.it/ricette-cat/?search_query="
   
@@ -40,7 +39,7 @@ filter_recipes <- function(difficulty, cooking_time, diet, ingredient,
   else if (diet == "vegetariano") {
     url <- "https://www.giallozafferano.it/ricette-cat/Vegetariani/"
   }
-    
+  
   if (ingredient == "pesce"){
     url <- "https://www.giallozafferano.it/ricette-cat/Pesce/"
   }
@@ -64,5 +63,12 @@ filter_recipes <- function(difficulty, cooking_time, diet, ingredient,
     url <- "https://www.giallozafferano.it/ricette-cat/Fritti/"
   }
   
-  return(url)
+  search_url <- url
+  links <- get_recipes_links(search_url)
+  
+  for(link in links){
+    recipe <- get_recipe_info(link)
+    print(recipe)
+  }
+  
 }

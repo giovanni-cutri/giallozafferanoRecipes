@@ -5,7 +5,7 @@ Version: 0.1.0
 Author: Giovanni Cutrì
 Maintainer: The package maintainer <giovannicutri02@gmail.com>
 Description: Scrape recipes from the Italian website GialloZafferano
-    You can filter by cooking time, complexity, ingredients and other fields.
+    You can filter by difficulty, cooking time, ingredients and other fields.
 License: MIT License
 Encoding: UTF-8
 LazyData: true

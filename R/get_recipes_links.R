@@ -17,5 +17,4 @@ get_recipes_links <- function(url) {
   }
 
   return(recipes_links)
-
 }
