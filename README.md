@@ -32,9 +32,9 @@ Available parameters
 category            The recipe's category, as noted on the website
 difficulty          The recipe's difficulty ("facile", "medio", "difficile")                              
 cooking_time        The recipe's cooking time (15, 30 or 60 minutes)
-diet                A healthy feature of the recipe (light, senza_glutine, senza_lattosio, vegetariano)
-ingredient          A particular ingredient of the recipe (pesce, frutta, carne, formaggio)
-cooking_method      The recipe's cooking method (al_forno, piatti_freddi, fritti)
+diet                A healthy feature of the recipe ("light", "senza_glutine", "senza_lattosio", "vegetariano")
+ingredient          A particular ingredient of the recipe ("pesce", "frutta", "carne", "formaggio")
+cooking_method      The recipe's cooking method ("al_forno", "piatti_freddi", "fritti")
 special             A special category the recipe belongs to, selected by the website
 ````
 
