@@ -3,7 +3,7 @@
 # giallozafferanoRecipes
 A handy tool to scrape recipes from the Italian website [GialloZafferano](https://www.giallozafferano.it/), written in R.
 
-You can filter by difficulty, cooking time, ingredients and other fields.
+You can filter by difficulty, cooking time, ingredients, and other fields (see the full list below).
 
 The result is a dataframe containing all of the recipes which you can use to set up a personal cooking plan.
 
