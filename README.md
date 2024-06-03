@@ -1,7 +1,7 @@
 ![](man/figures/socialify.png)
 
 # giallozafferanoRecipes
-A handy tool to scrape recipes from the Italian website GialloZafferano, written in R.
+A handy tool to scrape recipes from the Italian website [GialloZafferano](https://www.giallozafferano.it/), written in R.
 
 You can filter by difficulty, cooking time, ingredients and other fields.
 
